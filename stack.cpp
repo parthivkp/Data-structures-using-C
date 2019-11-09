@@ -4,7 +4,7 @@
 #define max 30
 int ch,top=-1,s[max],iteam,i;
  
-int push(){
+void push(){
 	if (top==max-1){
 		printf("overflow\n");
 		
@@ -13,13 +13,13 @@ int push(){
 		scanf("%d",&iteam);
 		s[++top]=iteam;
 	}
-}  int pop(){
+} void pop(){
 	if (top==-1){
 		printf("undeflow\n");
 	} else{
 		printf("%d is deleted\n",s[top--]);
 	}
-} int display(){
+} void display(){
 	if (top==-1){
 		printf("nothing to display\n");
 	}else {
@@ -29,7 +29,7 @@ int push(){
 		printf("%d\n",s[i]);
 	}
 	}
-} int main(){ while(1){
+} void main(){ while(1){
 
 	printf("press\n 1 to push\n 2 to pop \n 3 to display \n 4.exit\n");
 	scanf("%d",&ch);
