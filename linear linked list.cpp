@@ -119,7 +119,7 @@ void ins_beg(){
 		}
 	}
 }
-int main(){ int ch; while (1) {
+void main(){ int ch; while (1) {
 
 	printf("\n\n1.display\n2.insert in the beg\n3.ins at end\n4.insert at any position\n5.delete at beg\n6.delete at end\n7.delete at location\n0.exit\n\n");
 	scanf("%d",&ch);
