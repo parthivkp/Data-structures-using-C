@@ -139,7 +139,7 @@ void del_end(){
 		while (temp->next!=NULL&&temp->data!=search){
 		
 		temp=temp->next;}
-	} if(temp->next==NULL){
+	} if(temp->data!==search){
 		printf("not found\n"); }
 		else if (temp->data==search&&temp->next==NULL){
 			del_end();
