@@ -139,8 +139,8 @@ void del_end(){
 		while (temp->next!=NULL&&temp->data!=search){
 		
 		temp=temp->next;}
-	} if(temp->data!=search){
-		printf("notfound\n"); }
+	} if(temp->next==NULL){
+		printf("not found\n"); }
 		else if (temp->data==search&&temp->next==NULL){
 			del_end();
 		} else if(temp->data==search){
@@ -151,7 +151,43 @@ void del_end(){
 		}
 	}
 	
-	
+	void ins_order(){
+		if (head==NULL){
+			ins_beg();
+		} else{
+			newnode=(struct node*)malloc(sizeof(struct node));
+			printf("enter the data\n");
+			scanf("%d",&newnode->data);
+			if(head->data>newnode->data){
+				newnode->prev=NULL;
+				head->prev=newnode;
+				newnode->next=head;
+				head=newnode;
+			} else{
+				temp=head;
+				while(temp->next!=NULL&&temp->data<newnode->data){
+					temp=temp->next;
+				}  if (temp->next==NULL&&temp->data>newnode->data){
+						newnode->prev=temp->prev;
+					newnode->next=temp;
+					temp->prev->next=newnode;
+					temp->prev=newnode;
+					
+				} else if(temp->next==NULL){
+					temp->next=newnode;
+					newnode->prev=temp;
+					newnode->next=NULL;
+					
+				} else if(temp->data>newnode->data){
+					newnode->prev=temp->prev;
+					newnode->next=temp;
+					temp->prev->next=newnode;
+					temp->prev=newnode;
+					
+				} 
+			}
+		}
+	}
 
 
 
@@ -160,7 +196,7 @@ void del_end(){
  int main(){ int ch;
 
 while(1){
-printf("1.ins-beg\n2.display\n3.ins_end \n4.DEL_beg\n5.del_end\n6.ins_pos\n7.ser_del\n0.exit\n");
+printf("1.ins-beg\n2.display\n3.ins_end \n4.DEL_beg\n5.del_end\n6.ins_pos\n7.ser_del\n8.ins_order\n0.exit\n");
 scanf("%d",&ch);
 switch(ch){
 case 1:ins_beg();break;
@@ -170,8 +206,9 @@ case 4: del_beg();break;
 case 5: del_end();break;
 case 6: ins_pos();break;
 case 7:ser_del();break;
+case 8:ins_order();break;
 case 0:exit(0);break;
-
+ return 0;
 
 }
 }}
