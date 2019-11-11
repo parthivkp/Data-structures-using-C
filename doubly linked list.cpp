@@ -139,7 +139,7 @@ void del_end(){
 		while (temp->next!=NULL&&temp->data!=search){
 		
 		temp=temp->next;}
-	} if(temp->data!==search){
+	} if(temp->next==NULL){
 		printf("not found\n"); }
 		else if (temp->data==search&&temp->next==NULL){
 			del_end();
@@ -167,7 +167,7 @@ void del_end(){
 				temp=head;
 				while(temp->next!=NULL&&temp->data<newnode->data){
 					temp=temp->next;
-				}  if (temp->next==NULL&&temp->data>newnode->data){
+				}  if (temp->data>newnode->data){
 						newnode->prev=temp->prev;
 					newnode->next=temp;
 					temp->prev->next=newnode;
@@ -178,13 +178,7 @@ void del_end(){
 					newnode->prev=temp;
 					newnode->next=NULL;
 					
-				} else if(temp->data>newnode->data){
-					newnode->prev=temp->prev;
-					newnode->next=temp;
-					temp->prev->next=newnode;
-					temp->prev=newnode;
-					
-				} 
+				}  
 			}
 		}
 	}
