@@ -52,13 +52,13 @@ void ins_end(){
 }
 	int main(){ int ch; while (1) {
 
-	printf("\n\n1.display\n2.insert in the end\n4.del alternate\n0.exit\n\n");
+	printf("\n\n1.display\n2.insert in the end\n3.del alternate\n0.exit\n\n");
 	scanf("%d",&ch);
 	switch (ch){
 		case 1: display();break;
 		case 2: ins_end();break;
-		case 4:delete_alt();break;
-		case 3:exit(0);
+		case 3:delete_alt();break;
+		case 0:exit(0);
 	
 	}
 	
